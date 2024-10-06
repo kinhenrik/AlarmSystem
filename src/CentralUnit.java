@@ -74,8 +74,10 @@ public class CentralUnit {
         int input = scanner.nextInt();
         if (input == CODE) {
             access = true;
+            System.out.println("Access granted...");
         } else {
             access = false;
+            System.out.println("Access denied...");
         }
     }
 

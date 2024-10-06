@@ -92,7 +92,6 @@ public class Room {
         } else {
             if (!listOfSensors.get(randomSensor).isSensorTriggered()) {
                 listOfSensors.get(randomSensor).triggerSensor();
-            } else {
                 simulateBurglary();
             }
         }
