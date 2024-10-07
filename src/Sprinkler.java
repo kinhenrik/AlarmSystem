@@ -11,7 +11,6 @@ public class Sprinkler extends SmokeSensor{
     }
 
     public void activateSprinkler() {
-        sensorTriggered = true;
         System.out.println("[Sprinkler] in [" + sensorLocation + "] has been triggered!");
     }
 }

@@ -13,6 +13,7 @@ public class Room {
 
     public List<Sensor>listOfSensors = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
 
     public Room(String location, int numOfWindows, boolean motionSensor, boolean doorSensor) {
         this.location = location;
@@ -66,8 +67,6 @@ public class Room {
             System.out.println("Sensor: [" + listOfTriggeredSensors.get(i).getSensorType() + "]");
             if (listOfTriggeredSensors.get(i).getSensorType().equals("Smoke Sensor")) {
                 System.out.println("Sprinkler has been activated.");
-            } else {
-                System.out.println("");
             }
         }
     }
@@ -85,27 +84,20 @@ public class Room {
     }
 
     public void simulateBurglary() {
-        Random random = new Random();
         int randomSensor = random.nextInt(listOfSensors.size());
-        if (listOfSensors.get(randomSensor).getSensorType().equals("Smoke Sensor")) {
-            simulateBurglary();
-        } else {
+        if (!listOfSensors.get(randomSensor).sensorType.equals("Smoke Sensor")) {
             if (!listOfSensors.get(randomSensor).isSensorTriggered()) {
-                listOfSensors.get(randomSensor).triggerSensor();
-                simulateBurglary();
-            }
+                listOfSensors.get(randomSensor).triggerSensor(); }
+        } else {
+            simulateBurglary();
         }
     }
 
     public void simulateFire() {
-        Random random = new Random();
         int randomSensor = random.nextInt(listOfSensors.size());
         if (listOfSensors.get(randomSensor).getSensorType().equals("Smoke Sensor")) {
             if (!listOfSensors.get(randomSensor).isSensorTriggered()) {
-                listOfSensors.get(randomSensor).triggerSensor();
-            } else {
-                simulateFire();
-            }
+                listOfSensors.get(randomSensor).triggerSensor(); }
         } else {
             simulateFire();
         }
