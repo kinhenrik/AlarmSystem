@@ -5,6 +5,8 @@ public class SmokeSensor extends Sensor{
         this.sensorActive = true;
     }
 
+    Sprinkler sprinkler = new Sprinkler(super.sensorLocation, "Sprinkler");
+
     @Override
     public void setSensorActive(boolean sensorActive) {
         super.setSensorActive(true);
@@ -13,10 +15,9 @@ public class SmokeSensor extends Sensor{
     @Override
     public void triggerSensor() {
         if (sensorActive) {
-            Sprinkler sprinkler = new Sprinkler(sensorLocation, sensorType);
             sensorTriggered = true;
             System.out.println("[" + sensorType + "] in [" + sensorLocation + "] has been triggered!");
-            sprinkler.activateSprinkler();
+            sprinkler.triggerSensor();
         } else {
             System.out.println("Inactive sensors can't be triggered.");
         }
