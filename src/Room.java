@@ -113,7 +113,7 @@ public class Room {
         }
     }
 
-    //Getters & Setters
+
     public String getLocation() {
         return location;
     } public void setLocation(String location) {

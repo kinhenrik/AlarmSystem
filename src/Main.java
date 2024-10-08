@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        CentralUnit centralUnit = new CentralUnit();
+        CentralUnit centralUnit = new CentralUnit(1);
 
         Room poolArea = new Room("Pool area", 0, true, false);
         Room garage = new Room("Garage", 1, false, true);

@@ -4,20 +4,19 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class CentralUnit {
-    //Parameters
+
     private boolean systemOn = true;
     private boolean sensorsOn = false;
-    private final int CODE = 1;
+    private int passcode;
     private boolean access;
 
-    //Constructor
-    public CentralUnit() {}
+    public CentralUnit(int passcode) {
+        this.passcode = passcode;
+    }
 
-    //Imports
     Scanner scanner = new Scanner(System.in);
     List<Room>roomList = new ArrayList<>();
 
-    //Methods
     public void unitMenu() {
         while (systemOn) {
             String sensorStatus = (sensorsOn) ? "[on]/off" : "on/[off]";
@@ -72,7 +71,7 @@ public class CentralUnit {
         System.out.println("");
         System.out.print("Enter code: ");
         int input = scanner.nextInt();
-        if (input == CODE) {
+        if (input == passcode) {
             access = true;
             System.out.println("Access granted...");
         } else {
